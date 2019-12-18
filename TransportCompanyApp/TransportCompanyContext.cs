@@ -11,5 +11,7 @@
         {
         }
         public DbSet<Delievery> Delieveries { get; set; }
+        public DbSet<Recipient> Recipients { get; set; }
+        public DbSet<Sender> Senders { get; set; }
     }
 }

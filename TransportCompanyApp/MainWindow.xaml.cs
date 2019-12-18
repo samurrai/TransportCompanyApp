@@ -20,6 +20,7 @@ namespace TransportCompanyApp
     /// </summary>
     public partial class MainWindow : Window
     {
+        private readonly TransportCompanyContext transportCompanyContext = new TransportCompanyContext();
         public MainWindow()
         {
             InitializeComponent();
@@ -73,8 +74,12 @@ namespace TransportCompanyApp
 
         private async void OrderButtonClick(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(fromTb.Text) || string.IsNullOrWhiteSpace(toTb.Text)
-                || string.IsNullOrWhiteSpace(weightTb.Text))
+            if (string.IsNullOrWhiteSpace(fromTb.Text) || string.IsNullOrWhiteSpace(toTb.Text) 
+                || string.IsNullOrWhiteSpace(weightTb.Text) || string.IsNullOrWhiteSpace(senderFullNameTb.Text)
+                || string.IsNullOrWhiteSpace(senderPhoneNumberTb.Text) || string.IsNullOrWhiteSpace(senderEmailTb.Text)
+                || string.IsNullOrWhiteSpace(recepientAddressTb.Text)  || string.IsNullOrWhiteSpace(recepientEmailTb.Text) 
+                || string.IsNullOrWhiteSpace(recepientFullNameTb.Text) || string.IsNullOrWhiteSpace(recepientPhoneNumberTb.Text)
+            )
             {
                 MessageBox.Show("Заполните все поля");
             }
@@ -95,25 +100,58 @@ namespace TransportCompanyApp
                     delieveryType = DelieveryType.Shipping;
                 }
 
-                using (TransportCompanyContext transportCompanyContext = new TransportCompanyContext())
+                Sender senderPerson = new Sender
                 {
-                    transportCompanyContext.Delieveries.Add(new Delievery
-                    {
-                        CityFrom = fromTb.Text,
-                        CityTo = toTb.Text,
-                        Weight = int.Parse(weightTb.Text),
-                        FinalSum = int.Parse(finalSumTb.Text),
-                        DelieveryType = delieveryType
-                    });
-                    await transportCompanyContext.SaveChangesAsync();
-                }
+                    FullName = senderFullNameTb.Text,
+                    Email = senderEmailTb.Text,
+                    PhoneNumber = senderPhoneNumberTb.Text
+                };
+
+                Recipient recepient = new Recipient
+                {
+                    FullName = recepientFullNameTb.Text,
+                    Address = recepientAddressTb.Text,
+                    Email = recepientEmailTb.Text,
+                    PhoneNumber = recepientPhoneNumberTb.Text
+                };
+
+                transportCompanyContext.Delieveries.Add(new Delievery
+                {
+                    CityFrom = fromTb.Text,
+                    CityTo = toTb.Text,
+                    Weight = int.Parse(weightTb.Text),
+                    FinalSum = int.Parse(finalSumTb.Text),
+                    DelieveryType = delieveryType,
+                    Recipient = recepient,
+                    Sender = senderPerson
+                });
+                await transportCompanyContext.SaveChangesAsync();
+                
                 fromTb.Text = "";
                 toTb.Text = "";
                 weightTb.Text = "";
 
+                senderEmailTb.Text = "";
+                senderFullNameTb.Text = "";
+                senderPhoneNumberTb.Text = "";
+
+                recepientAddressTb.Text = "";
+                recepientEmailTb.Text = "";
+                recepientFullNameTb.Text = "";
+                recepientPhoneNumberTb.Text = "";
+
                 MessageBox.Show("Заказ был успешно оформлен");
                 orderButton.IsEnabled = true;
             }
+        }
+
+        private void ShowLastOrder(object sender, RoutedEventArgs e)
+        {
+            List<Delievery> delieveries = transportCompanyContext.Delieveries.ToList();
+            string info = $"Из: {delieveries.Last().CityFrom}\n" +
+                $"В: {delieveries.Last().CityTo}\n" +
+                $"Вес: {delieveries.Last().Weight}";
+            MessageBox.Show(info);
         }
     }
 }

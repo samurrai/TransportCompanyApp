@@ -14,5 +14,7 @@ namespace TransportCompanyApp
         public string CityTo { get; set; }
         public DelieveryType DelieveryType { get; set; }
         public int FinalSum { get; set; }
+        public Sender Sender { get; set; }
+        public Recipient Recipient { get; set; }
     }
 }

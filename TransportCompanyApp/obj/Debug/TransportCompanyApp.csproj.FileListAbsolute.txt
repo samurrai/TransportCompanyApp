@@ -24,3 +24,5 @@ C:\Users\User\source\repos\TransportCompanyApp\TransportCompanyApp\obj\Debug\Tra
 C:\Users\User\source\repos\TransportCompanyApp\TransportCompanyApp\obj\Debug\TransportCompanyApp.exe
 C:\Users\User\source\repos\TransportCompanyApp\TransportCompanyApp\obj\Debug\TransportCompanyApp.pdb
 C:\Users\User\source\repos\TransportCompanyApp\TransportCompanyApp\bin\Debug\ru\EntityFramework.SqlServer.resources.dll
+C:\Users\User\source\repos\TransportCompanyApp\TransportCompanyApp\obj\Debug\TransportCompanyApp.Migrations.InitialCreate.resources
+C:\Users\User\source\repos\TransportCompanyApp\TransportCompanyApp\obj\Debug\TransportCompanyApp.Migrations.Initial.resources

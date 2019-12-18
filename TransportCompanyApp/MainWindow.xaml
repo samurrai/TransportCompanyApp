@@ -28,6 +28,13 @@
         <Label Content="Итого: " HorizontalAlignment="Left" Margin="566,249,0,0" VerticalAlignment="Top"/>
         <TextBlock x:Name="kgPriceTb" HorizontalAlignment="Left" Margin="566,177,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30" Width="85"/>
         <Label Content="Цена за килограм(руб.): " HorizontalAlignment="Left" Margin="566,148,0,0" VerticalAlignment="Top"/>
-
+        <TextBox x:Name="senderFullNameTb" BorderBrush="DarkCyan" materialDesign:HintAssist.Hint="ФИО отправителя" HorizontalAlignment="Left" Height="31" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="210"/>
+        <TextBox x:Name="senderPhoneNumberTb" BorderBrush="DarkCyan" materialDesign:HintAssist.Hint="Телефон отправителя" HorizontalAlignment="Left" Height="31" Margin="10,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="210"/>
+        <TextBox x:Name="senderEmailTb" BorderBrush="DarkCyan" materialDesign:HintAssist.Hint="Почта отправителя" HorizontalAlignment="Left" Height="31" Margin="10,48,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="210"/>
+        <TextBox x:Name="recepientFullNameTb" BorderBrush="DarkCyan" materialDesign:HintAssist.Hint="ФИО получателя" HorizontalAlignment="Left" Height="31" Margin="10,246,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="210"/>
+        <TextBox x:Name="recepientAddressTb" BorderBrush="DarkCyan" materialDesign:HintAssist.Hint="Адрес получателя" HorizontalAlignment="Left" Height="31" Margin="10,282,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="210"/>
+        <TextBox x:Name="recepientPhoneNumberTb" BorderBrush="DarkCyan" materialDesign:HintAssist.Hint="Телефон получателя" HorizontalAlignment="Left" Height="31" Margin="10,354,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="210"/>
+        <TextBox x:Name="recepientEmailTb" BorderBrush="DarkCyan" materialDesign:HintAssist.Hint="Почта получателя" HorizontalAlignment="Left" Height="31" Margin="10,318,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="210"/>
+        <Button Background="DarkGray"  Content="Посмотреть последний заказ" HorizontalAlignment="Left" Margin="548,378,0,0" VerticalAlignment="Top" Width="234" Click="ShowLastOrder"/>
     </Grid>
 </Window>

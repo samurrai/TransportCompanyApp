@@ -71,6 +71,17 @@
     </ApplicationDefinition>
     <Compile Include="Delievery.cs" />
     <Compile Include="DelieveryType.cs" />
+    <Compile Include="Migrations\201912171022385_InitialCreate.cs" />
+    <Compile Include="Migrations\201912171022385_InitialCreate.Designer.cs">
+      <DependentUpon>201912171022385_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912181145054_Initial.cs" />
+    <Compile Include="Migrations\201912181145054_Initial.Designer.cs">
+      <DependentUpon>201912181145054_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Recipient.cs" />
+    <Compile Include="Sender.cs" />
     <Compile Include="TransportCompanyContext.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -99,6 +110,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Migrations\201912171022385_InitialCreate.resx">
+      <DependentUpon>201912171022385_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912181145054_Initial.resx">
+      <DependentUpon>201912181145054_Initial.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
